@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const translationDisplay = document.getElementById('translationDisplay');
     const refreshButton = document.getElementById('refreshButton');
     const languageToggle = document.getElementById('languageToggle');
+    const countLearnWords = document.getElementById('countLearnWords');
+    var counter = 0;
 
     let currentLanguage = 'russian'; // По умолчанию учим с русского на английский
     let currentIndex = -1;
@@ -43,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateWord() {
         // Скрываем перевод при обновлении слова
         translationDisplay.classList.remove('show');
-        
         // Выбираем случайный индекс, отличный от текущего
         let newIndex;
         do {
@@ -59,5 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
             wordDisplay.textContent = englishWords[currentIndex];
             translationDisplay.textContent = russianWords[currentIndex];
         }
+        counter = counter + 1;
+        countLearnWords.textContent = 'Количество изученных слов: ' + counter;
+        console.log(counter);
     }
 });
